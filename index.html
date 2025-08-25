@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yuva Mithra Youth Association</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #fef6ed; }
+    header { background: #f7931e; color: white; text-align: center; padding: 20px; }
+    header img { width: 80px; display: block; margin: 0 auto 10px; }
+    nav { background: #d26900; text-align: center; padding: 10px 0; }
+    nav button {
+      background: #ffb347; border: none; margin: 5px; padding: 10px 20px;
+      border-radius: 6px; cursor: pointer; font-weight: bold;
+    }
+    nav button:hover { background: #ff9a00; }
+    .content { padding: 20px; min-height: 400px; }
+    .section {
+      display: none; padding: 20px; background: #ffe5c4;
+      border-radius: 8px; margin-bottom: 20px;
+    }
+    .active { display: block; }
+    footer { background: #f7931e; color: white; text-align: center; padding: 10px; }
+    
+    /* Albums, Events, Programs, Gallery */
+    .album-container, .gallery-container, .member-container, .event-container, .program-container, .supporter-container {
+      display: flex; flex-wrap: wrap; gap: 20px;
+    }
+    .album, .gallery, .event, .program, .member, .supporter {
+      background: #fff3e0; border-radius: 8px; padding: 10px; width: 200px;
+      text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .album img, .gallery img, .event img, .program img, .member img, .supporter img {
+      width: 100%; border-radius: 6px; height: 150px; object-fit: cover;
+    }
+    .album h4, .gallery h4, .event h4, .program h4, .member h4, .supporter h4 {
+      margin: 10px 0 0; font-size: 14px; color: #333;
+    }
+    
+    /* Members + Supporters */
+    .member, .supporter {
+      background: #fff; border-radius: 8px; padding: 15px; width: 220px;
+      text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    }
+    .member img, .supporter img {
+      width: 100px; height: 100px; object-fit: cover; border-radius: 50%;
+      margin-bottom: 10px;
+    }
+    .member h4, .supporter h4 { margin: 5px 0; }
+    .member p, .supporter p { margin: 3px 0; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="C:\Users\91934\Pictures\Screenshots\Screenshot 2025-08-25 192055.png" alt="Lord Ganesha Icon">
+    <h1>🙏 Yuva Mithra Youth Association 🙏</h1>
+    <h2>Lord Ganesh Foundation for Vinayaka Chavithi</h2>
+  </header>
+
+  <nav>
+    <button onclick="showSection('about')">About</button>
+    <button onclick="showSection('programs')">Programs</button>
+    <button onclick="showSection('events')">Events</button>
+    <button onclick="showSection('albums')">Albums</button>
+    <button onclick="showSection('members')">Members</button>
+    <button onclick="showSection('supporters')">Supporters</button>
+    <button onclick="showSection('gallery')">Gallery</button>
+    <button onclick="showSection('contact')">Contact</button>
+  </nav>
+
+  <div class="content">
+    <div id="about" class="section active">
+      <h2>About Us</h2>
+      <p>Welcome to Yuva Mithra Youth Association, working for the community and celebrating Vinayaka Chavithi with devotion and unity.</p>
+    </div>
+    
+    <div id="programs" class="section">
+      <h2>Programs</h2>
+      <div class="program-container" id="programContainer"></div>
+    </div>
+    
+    <div id="events" class="section">
+      <h2>Events</h2>
+      <div class="event-container" id="eventContainer"></div>
+    </div>
+    
+    <!-- Albums Section -->
+    <div id="albums" class="section">
+      <h2>Albums</h2>
+      <div class="album-container" id="albumContainer"></div>
+    </div>
+    
+    <!-- Members Section -->
+    <div id="members" class="section">
+      <h2>Members</h2>
+      <div class="member-container" id="memberContainer"></div>
+    </div>
+
+    <!-- Supporters Section -->
+    <div id="supporters" class="section">
+      <h2>Supporters</h2>
+      <div class="supporter-container" id="supporterContainer"></div>
+    </div>
+    
+    <!-- Gallery Section -->
+    <div id="gallery" class="section">
+      <h2>Gallery</h2>
+      <div class="gallery-container" id="galleryContainer"></div>
+    </div>
+    
+    <div id="contact" class="section">
+      <h2>Contact</h2>
+      <p>📍 Location: Your City, India</p>
+      <p>📞 Phone: +91 98765 43210</p>
+      <p>✉️ Email: yuva@example.com</p>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Yuva Mithra Youth Association | Lord Ganesh Foundation
+  </footer>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    // Albums
+    const albums = [
+      { img: "ganesha2023.jpg", year: "Vinayaka Chavithi 2023" },
+      { img: "ganesha2022.jpg", year: "Vinayaka Chavithi 2022" },
+      { img: "ganesha2021.jpg", year: "Vinayaka Chavithi 2021" }
+    ];
+    const albumContainer = document.getElementById("albumContainer");
+    albums.forEach(album => {
+      const div = document.createElement("div");
+      div.className = "album";
+      div.innerHTML = `<img src="${album.img}" alt="Album"><h4>${album.year}</h4>`;
+      albumContainer.appendChild(div);
+    });
+
+    // Gallery
+    const gallery = [
+      { img: "gallery1.jpg", year: "Ganesh Idol Decoration" },
+      { img: "gallery2.jpg", year: "Cultural Program" },
+      { img: "gallery3.jpg", year: "Community Feast" }
+    ];
+    const galleryContainer = document.getElementById("galleryContainer");
+    gallery.forEach(item => {
+      const div = document.createElement("div");
+      div.className = "gallery";
+      div.innerHTML = `<img src="${item.img}" alt="Gallery"><h4>${item.year}</h4>`;
+      galleryContainer.appendChild(div);
+    });
+
+    // Members
+    const members = [
+      { img: "member1.jpg", name: " Kumar", position: "President", phone: "90000000", email: "xxx@example.com" },
+      { img: "member2.jpg", name: "chandu model", position: "Vice President", phone: "900000", email: "xxxh@example.com" },
+      { img: "member3.jpg", name: "bharath", position: "Treasurer", phone: "900000", email: "xxxx@example.com" }
+    ];
+    const memberContainer = document.getElementById("memberContainer");
+    members.forEach(m => {
+      const div = document.createElement("div");
+      div.className = "member";
+      div.innerHTML = `
+        <img src="${m.img}" alt="${m.name}">
+        <h4>${m.name}</h4>
+        <p><b>${m.position}</b></p>
+        <p>📞 ${m.phone}</p>
+        <p>✉️ ${m.email}</p>
+      `;
+      memberContainer.appendChild(div);
+    });
+
+    // Supporters
+    const supporters = [
+      { img: "supporter1.jpg", name: "Praveen Sharma", role: "Donor", phone: "9001234567", email: "praveen@example.com" },
+      { img: "supporter2.jpg", name: "Kiran Raju", role: "Volunteer", phone: "9870011223", email: "kiran@example.com" },
+      { img: "supporter3.jpg", name: "Vijaya Lakshmi", role: "Well Wisher", phone: "9556677889", email: "vijaya@example.com" }
+    ];
+    const supporterContainer = document.getElementById("supporterContainer");
+    supporters.forEach(s => {
+      const div = document.createElement("div");
+      div.className = "supporter";
+      div.innerHTML = `
+        <img src="${s.img}" alt="${s.name}">
+        <h4>${s.name}</h4>
+        <p><b>${s.role}</b></p>
+        <p>📞 ${s.phone}</p>
+        <p>✉️ ${s.email}</p>
+      `;
+      supporterContainer.appendChild(div);
+    });
+
+    // Events
+    const events = [
+      { img: "event1.jpg", name: "Bhajans Night" },
+      { img: "event2.jpg", name: "Cultural Dance" },
+      { img: "event3.jpg", name: "Prize Distribution" }
+    ];
+    const eventContainer = document.getElementById("eventContainer");
+    events.forEach(e => {
+      const div = document.createElement("div");
+      div.className = "event";
+      div.innerHTML = `<img src="${e.img}" alt="Event"><h4>${e.name}</h4>`;
+      eventContainer.appendChild(div);
+    });
+
+    // Programs
+    const programs = [
+      { img: "program1.jpg", name: "Ganesh Idol Installation" },
+      { img: "program2.jpg", name: "Daily Puja Rituals" },
+      { img: "program3.jpg", name: "Visarjan Procession" }
+    ];
+    const programContainer = document.getElementById("programContainer");
+    programs.forEach(p => {
+      const div = document.createElement("div");
+      div.className = "program";
+      div.innerHTML = `<img src="${p.img}" alt="Program"><h4>${p.name}</h4>`;
+      programContainer.appendChild(div);
+    });
+  </script>
+</body>
+</html>
